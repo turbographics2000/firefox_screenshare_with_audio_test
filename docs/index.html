@@ -16,6 +16,9 @@
       const dataArray = new Uint8Array(bufferLength);
 
       navigator.mediaDevices.getUserMedia({
+        video: {
+          mediaSource: 'screen'
+        },
         audio: {
           mediaSource: 'audioCapture'
         }
