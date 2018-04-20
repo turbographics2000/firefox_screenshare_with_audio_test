@@ -3,18 +3,37 @@
   <head>
   </head>
   <body>
+    <video src="sintel.mp4" autoplay></video>
     <video id="vid" autoplay></video>
+    <div id="audioMeterContainer">
+      <div id="audioMeter"></div>
+    </div>
     <script>
+      const ac = new AuidoContext();
+      const analyser = ac.createAnalyser();
+      analyser.fftSize = 256;
+      const bufferLength = analyser.fftSize;
+      const dataArray = new Uint8Array(bufferLength);
+
       navigator.mediaDevices.getUserMedia({
-        
         audio: {
           mediaSource: 'audioCapture'
         }
+        draw();
       }).then(stream => {
-        vid.srcObject = stream;
+        const src = ac.createMediaStreamSource(stream);
+        //vid.srcObject = stream;
       }).catch(err => {
         console.log(err);
       });
+      
+      function draw() {
+        requestAnimationFrame(draw);
+        analyser.getByteTimeDomainData(dataArray);
+        let max = 0;
+        dataArray.forEach(val = max = Math.max(val, max));
+        console.log(max);
+      }
     </script>
   </body>
  </html>
