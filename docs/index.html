@@ -10,7 +10,9 @@
         audio: {
           mediaSource: 'audioCapture'
         }
-      }).then(stream => vid.srcObject = stream);
+      }).then(stream => {
+        vid.srcObject = stream;
+      });
     </script>
   </body>
  </html>
