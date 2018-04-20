@@ -6,9 +6,11 @@
     <video id="vid" autoplay></video>
     <script>
       navigator.mediaDevices.getUserMedia({
-        video: true,
+        video: {
+          mediaSource: 'screen',
+        },
         audio: {
-          mediaSource: 'audioCapture'
+          mediaSource: 'screen'
         }
       }).then(stream => {
         vid.srcObject = stream;
