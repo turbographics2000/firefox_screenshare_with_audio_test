@@ -9,7 +9,7 @@
       <div id="audioMeter"></div>
     </div>
     <script>
-      const ac = new AuidoContext();
+      const ac = new AudioContext();
       const analyser = ac.createAnalyser();
       analyser.fftSize = 256;
       const bufferLength = analyser.fftSize;
