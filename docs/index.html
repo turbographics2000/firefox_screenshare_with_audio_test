@@ -31,7 +31,7 @@
         requestAnimationFrame(draw);
         analyser.getByteTimeDomainData(dataArray);
         let max = 0;
-        dataArray.forEach(val = max = Math.max(val, max));
+        dataArray.forEach(val => max = Math.max(val, max));
         console.log(max);
       }
     </script>
