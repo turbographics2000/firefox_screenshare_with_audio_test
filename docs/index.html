@@ -12,6 +12,8 @@
         }
       }).then(stream => {
         vid.srcObject = stream;
+      }).catch(err => {
+        console.log(err);
       });
     </script>
   </body>
